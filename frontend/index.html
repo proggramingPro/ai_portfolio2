@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Portfolio</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <button id="darkModeToggle">🌙 Toggle Dark Mode</button>
+
+    <section id="chatbot">
+        <h2>Ask Me Anything</h2>
+        <input type="text" id="chatInput" placeholder="Type your question...">
+        <button onclick="askAI()">Ask AI</button>
+        <p id="chatResponse"></p>
+    </section>
+
+    <section id="voice-chat">
+        <h2>Talk to AI</h2>
+        <button onclick="startVoiceChat()">🎙 Start Voice Chat</button>
+        <p id="voiceResponse"></p>
+    </section>
+
+    <section id="generate">
+        <h2>Generate AI Project Description</h2>
+        <input type="text" id="projectTitle" placeholder="Enter Project Title">
+        <button onclick="generateDescription()">Generate</button>
+        <p id="projectDescription"></p>
+    </section>
+
+    <section id="resume">
+        <h2>Upload Your Resume for AI Analysis</h2>
+        <input type="file" id="resumeUpload">
+        <button onclick="analyzeResume()">Analyze</button>
+        <p id="resumeFeedback"></p>
+    </section>
+
+    <section id="blog">
+        <h2>Generate AI Blog Post</h2>
+        <input type="text" id="blogTopic" placeholder="Enter blog topic">
+        <button onclick="generateBlog()">Generate</button>
+        <p id="blogContent"></p>
+    </section>
+
+    <section id="testimonials">
+        <h2>What People Say</h2>
+        <button onclick="generateTestimonial()">Generate AI Testimonial</button>
+        <p id="testimonialText"></p>
+    </section>
+
+    <section id="visitor-count">
+        <h2>Live Visitor Count: <span id="visitorNumber">0</span></h2>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+</html>
