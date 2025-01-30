@@ -2,7 +2,7 @@ require('dotenv').config();
 const express = require('express');
 const cors = require('cors');
 const multer = require('multer');
-const { OpenAI } = require('openai'); // Import from new OpenAI package
+const { OpenAI } = require('openai'); // Import from OpenAI package
 
 const app = express();
 
@@ -19,7 +19,7 @@ app.post('/api/chat', async (req, res) => {
     try {
         const userMessage = req.body.message;
         const response = await openai.chat.completions.create({
-            model: 'gpt-4', // Specify the correct model
+            model: 'gpt-3.5-turbo', // Using GPT-3.5 model
             messages: [{ role: 'user', content: userMessage }],
         });
         res.json({ reply: response.choices[0].message.content });
@@ -34,7 +34,7 @@ app.post('/api/generate-description', async (req, res) => {
     try {
         const { projectTitle } = req.body;
         const response = await openai.completions.create({
-            model: 'gpt-4',
+            model: 'gpt-3.5-turbo', // Using GPT-3.5 model
             prompt: `Write a short, engaging description for a project titled "${projectTitle}"`,
             max_tokens: 50,
         });
@@ -51,7 +51,7 @@ app.post('/api/analyze-resume', upload.single('resume'), async (req, res) => {
     try {
         const resumeText = "Extracted text from uploaded resume"; // Use OCR or NLP for real extraction
         const response = await openai.completions.create({
-            model: 'gpt-4',
+            model: 'gpt-3.5-turbo', // Using GPT-3.5 model
             prompt: `Analyze the following resume and provide feedback:\n\n${resumeText}`,
             max_tokens: 100,
         });
@@ -67,7 +67,7 @@ app.post('/api/generate-blog', async (req, res) => {
     try {
         const { topic } = req.body;
         const response = await openai.completions.create({
-            model: 'gpt-4',
+            model: 'gpt-3.5-turbo', // Using GPT-3.5 model
             prompt: `Write a short blog post about "${topic}".`,
             max_tokens: 200,
         });
@@ -82,7 +82,7 @@ app.post('/api/generate-blog', async (req, res) => {
 app.post('/api/generate-testimonial', async (req, res) => {
     try {
         const response = await openai.completions.create({
-            model: 'gpt-4',
+            model: 'gpt-3.5-turbo', // Using GPT-3.5 model
             prompt: 'Write a short, positive testimonial for a web developer.',
             max_tokens: 50,
         });
