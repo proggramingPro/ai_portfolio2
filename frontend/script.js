@@ -13,7 +13,7 @@ chatForm.addEventListener('submit', async (e) => {
 
     // Send message to the server
     try {
-        const response = await fetch('https://ai-portfolio2.onrender.com', { // Make sure this matches your server URL (local or deployed)
+        const response = await fetch('http://localhost:5000/api/chat', { // Use your deployed backend URL here if online
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
