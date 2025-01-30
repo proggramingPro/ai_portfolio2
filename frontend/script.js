@@ -1,4 +1,4 @@
-const backendUrl = "http://localhost:5000";
+const backendUrl = "https://ai-portfolio2.onrender.com";
 
 async function askAI() { /* Chatbot Functionality */ }
 async function generateDescription() { /* AI Project Description */ }
