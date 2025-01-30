@@ -19,11 +19,12 @@ app.post('/api/chat', async (req, res) => {
     try {
         const userMessage = req.body.message;
         const response = await openai.chat.completions.create({
-            model: 'gpt-4',
+            model: 'gpt-4', // Specify the correct model
             messages: [{ role: 'user', content: userMessage }],
         });
         res.json({ reply: response.choices[0].message.content });
     } catch (error) {
+        console.error("Error in /api/chat:", error);
         res.status(500).json({ error: 'Error processing AI request' });
     }
 });
@@ -39,6 +40,7 @@ app.post('/api/generate-description', async (req, res) => {
         });
         res.json({ description: response.choices[0].text.trim() });
     } catch (error) {
+        console.error("Error in /api/generate-description:", error);
         res.status(500).json({ error: 'Error generating project description' });
     }
 });
@@ -55,6 +57,7 @@ app.post('/api/analyze-resume', upload.single('resume'), async (req, res) => {
         });
         res.json({ feedback: response.choices[0].text.trim() });
     } catch (error) {
+        console.error("Error in /api/analyze-resume:", error);
         res.status(500).json({ error: 'Error analyzing resume' });
     }
 });
@@ -70,6 +73,7 @@ app.post('/api/generate-blog', async (req, res) => {
         });
         res.json({ blog: response.choices[0].text.trim() });
     } catch (error) {
+        console.error("Error in /api/generate-blog:", error);
         res.status(500).json({ error: 'Error generating blog post' });
     }
 });
@@ -84,6 +88,7 @@ app.post('/api/generate-testimonial', async (req, res) => {
         });
         res.json({ testimonial: response.choices[0].text.trim() });
     } catch (error) {
+        console.error("Error in /api/generate-testimonial:", error);
         res.status(500).json({ error: 'Error generating testimonial' });
     }
 });
